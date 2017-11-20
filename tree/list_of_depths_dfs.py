@@ -7,7 +7,7 @@ class Node:
         self.val = val
 # depth started from 0 which maps to 0th index of lists
 # at each level of iteration pass level + 1 
-def levelList(root,lists,level):
+def levelListDFS(root,lists,level):
 
     if root is None:
         return
@@ -18,8 +18,8 @@ def levelList(root,lists,level):
         lists.append(temp)
 
     lists[level].append(root)
-    levelList(root.left,lists,level+1)
-    levelList(root.right,lists,level+1)
+    levelListDFS(root.left,lists,level+1)
+    levelListDFS(root.right,lists,level+1)
 
 
 def printLists(lists):
@@ -37,5 +37,5 @@ root.right = Node(8)
 
 
 lists = []
-levelList(root,lists,0)
+levelListDFS(root,lists,0)
 printLists(lists)
